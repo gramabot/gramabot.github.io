@@ -11,13 +11,17 @@
 	/* Preloader */
 	$(window).on('load', function() {
 		var preloaderFadeOutTime = 500;
-		function hidePreloader() {
-			var preloader = $('.spinner-wrapper');
-			setTimeout(function() {
-				preloader.fadeOut(preloaderFadeOutTime);
-			}, 500);
-		}
-		hidePreloader();
+        function hidePreloader() {
+            var preloader = $('.spinner-wrapper');
+            setTimeout(function() {
+                preloader.fadeOut(preloaderFadeOutTime);
+            }, 500);
+        }
+        hidePreloader();
+        window.replainSettings = { id: 'd5d187ad-54ac-4206-9a2a-d638e68126ff' };
+        (function(u){var s=document.createElement('script');s.type='text/javascript';s.async=true;s.src=u;
+            var x=document.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);
+        })('https://widget.replain.cc/dist/client.js');
 	});
 
 
@@ -77,7 +81,7 @@
     });
 
 
-    /* Image Slider - Swiper */
+    /*/!* Image Slider - Swiper *!/
     var imageSlider = new Swiper('.image-slider', {
         autoplay: {
             delay: 2000,
@@ -112,7 +116,7 @@
     });
 
 
-    /* Card Slider - Swiper */
+    /!* Card Slider - Swiper *!/
 	var cardSlider = new Swiper('.card-slider', {
 		autoplay: {
             delay: 4000,
@@ -124,7 +128,7 @@
 			prevEl: '.swiper-button-prev'
 		}
     });
-
+*/
 
     /* Video Lightbox - Magnific Popup */
     $('.popup-youtube, .popup-vimeo').magnificPopup({
