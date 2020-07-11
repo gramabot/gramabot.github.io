@@ -232,7 +232,7 @@
                     rformSuccess();
                 } else {
                     rformError();
-                    rsubmitMSG(false, text);
+                    rsubmitMSG(false, text.message);
                 }
             }
         });
