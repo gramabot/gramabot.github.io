@@ -216,6 +216,9 @@
         var select = $("#rselect").val();
         var terms = $("#rterms").val();
 
+	$("#submitBtn").html("<i class='fa fa-spinner fa-spin'></i>Loading</button>")
+	$("#submitBtn").attr('class', 'form-control-submit-button-loading')
+
         $.ajax({
             type: "POST",
             url: "http://gramabot.com:8000/api/account/register",
@@ -226,8 +229,10 @@
 		from: "web",
 		captcha: grecaptcha.getResponse(),
 	    },
-            //data: "name=" + name + "&email=" + email + "&phone=" + phone + "&select=" + select + "&terms=" + terms,
             success: function(text) {
+		grecaptcha.reset();
+		$("#submitBtn").html("Sign Up")
+		$("#submitBtn").attr('class', 'form-control-submit-button')
                 if (text.status == "200") {
                     rformSuccess();
                 } else {
@@ -240,7 +245,7 @@
 
     function rformSuccess() {
         $("#requestForm")[0].reset();
-        rsubmitMSG(true, "Request Submitted!");
+        rsubmitMSG(true, "Registration success!");
         $("input").removeClass('notEmpty'); // resets the field label after submission
     }
 
