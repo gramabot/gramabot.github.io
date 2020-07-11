@@ -218,6 +218,7 @@
 
 	$("#submitBtn").html("<i class='fa fa-spinner fa-spin'></i>Loading</button>")
 	$("#submitBtn").attr('class', 'form-control-submit-button-loading')
+	$("#rmsgSubmit").text('');
 
         $.ajax({
             type: "POST",
@@ -245,7 +246,7 @@
 
     function rformSuccess() {
         $("#requestForm")[0].reset();
-        rsubmitMSG(true, "Registration success!");
+        rsubmitMSG(true, "Registration success! check your email");
         $("input").removeClass('notEmpty'); // resets the field label after submission
     }
 
