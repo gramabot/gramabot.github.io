@@ -1477,7 +1477,7 @@ color: #00bfd8;
 	margin-bottom: 3.75rem;
 	font-size: 1rem;
 	line-height: 1.5rem;
-	text-align: center;
+	/*text-align: center;*/
 }
 
 .form-2 .list-unstyled .fas,
@@ -1485,6 +1485,7 @@ color: #00bfd8;
 	margin-right: 0.5rem;
 	font-size: 0.875rem;
 	color: #00bfd8;
+	margin-top: 0.3rem;
 }
 
 .form-2 .list-unstyled .fa-phone {
@@ -1759,7 +1760,7 @@ a:hover.back-to-top {
 
 	/* Contact */
 	.form-2 .list-unstyled li {
-		display: inline-block;
+		/*display: inline-block;*/
 		margin-right: 0.5rem;
 		margin-left: 0.5rem;
 	}

@@ -190,6 +190,13 @@
 
     /* Request Form */
     $("#requestForm").validator().on("submit", function(event) {
+	var pass = $("#rpass").val();
+	var pass2 = $("#rpass2").val();
+	if (pass != pass2) {
+		$("#cpass2").html("<ul style='margin-top: 0.375rem;' class='list-unstyled'><li>Passwords Don't Match!.</li></ul>")
+		return;
+	}
+
     	if (event.isDefaultPrevented()) {
             // handle the invalid form...
             rformError();
@@ -205,16 +212,23 @@
         // initiate variables with form content
 		var name = $("#rname").val();
 		var email = $("#remail").val();
-		var phone = $("#rphone").val();
+		var pass = $("#rpass").val();
         var select = $("#rselect").val();
         var terms = $("#rterms").val();
 
         $.ajax({
             type: "POST",
-            url: "php/requestform-process.php",
-            data: "name=" + name + "&email=" + email + "&phone=" + phone + "&select=" + select + "&terms=" + terms,
+            url: "http://gramabot.com:8000/api/account/register",
+	    data: {
+		full_name: name,
+		email: email,
+		password: pass,
+		from: "web",
+		captcha: grecaptcha.getResponse(),
+	    },
+            //data: "name=" + name + "&email=" + email + "&phone=" + phone + "&select=" + select + "&terms=" + terms,
             success: function(text) {
-                if (text == "success") {
+                if (text.status == "200") {
                     rformSuccess();
                 } else {
                     rformError();
